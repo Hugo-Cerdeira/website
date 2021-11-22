@@ -1,6 +1,6 @@
 html{
 
-    min-height: calc(100% + env(safe-area-inset-top));
+    min-height: calc(00% + env(safe-area-inset-top));
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 
     background-color: #a55185;
@@ -9,6 +9,7 @@ html{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 html body{
     background: unset;
 }
