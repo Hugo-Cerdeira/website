@@ -1,16 +1,21 @@
-body{
+html{
+
     min-height: calc(100% + env(safe-area-inset-top));
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-
+    background: linear-gradient(88deg, #4c4f6a 3.2%, #f46f259e 97.6%);
     background-image: linear-gradient(88deg, #4c4f6a 3.2%, #f46f259e 97.6%);
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
+html body{
+    background: unset;
+}
 
 body{
 
-    height: 100vh;
+    height: 200vh;
     margin: 0;
     padding: 0;
 }
