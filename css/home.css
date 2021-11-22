@@ -1,4 +1,14 @@
 body{
+    min-height: calc(100% + env(safe-area-inset-top));
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+
+    background-image: linear-gradient(88deg, #4c4f6a 3.2%, #f46f259e 97.6%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body{
 
     height: 100vh;
     margin: 0;
@@ -6,10 +16,6 @@ body{
 }
 .profile-wrapper{
     align-items: center;
-    background-image: linear-gradient(88deg, #4c4f6a 3.2%, #f46f259e 97.6%);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     overflow: auto;
     color: rgba(255, 255, 255, .9);
     font-family: Barlow, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
