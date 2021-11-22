@@ -7,7 +7,7 @@ html{
     
     background-image: url('backgrounds/gradient.svg');
     background-attachment: fixed;
-    background-position: center;
+    background-position: center -200px;
     background-repeat: no-repeat;
     background-size: cover;
     background-color:red;
