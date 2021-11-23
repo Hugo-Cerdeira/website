@@ -1,97 +1,4 @@
-html{
-
-    min-height: calc(100% + env(safe-area-inset-top));
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-
-    background-color: #666b98;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-html body{
-    background: unset;
-}
-
-body{
-
-    margin: 0;
-    padding: 0;
-}
-.profile-wrapper{
-    align-items: center;
-    overflow: auto;
-    color: rgba(255, 255, 255, .9);
-    font-family: Barlow, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 400;
-    word-break: normal;
-    word-wrap: normal;
-    -webkit-hyphens: none;
-    padding: 2% 2.5%;
-    height: 100%;
-    width: 100%;
-}
-.profile-wrapper .icon-link svg{
-
-    height: 2rem;
-    fill: #fff;
-}
-.profile-wrapper .icon-link{
-    line-height: 3rem;
-    width: 4.6rem;
-    height: 4.6rem;
-    border: 1px solid;
-    margin: .66rem;
-    background-color: none;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-align-items: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    cursor: pointer;
-    border-radius: 4px;
-    -webkit-text-decoration: none;
-    text-decoration: none;
-    color: inherit;
-    -webkit-transition: .3s;
-    transition: .3s;
-}
-.profile-wrapper h1 {
-    font-size: 4.5rem;
-    margin-bottom: 1.875rem;
-    line-height: 4.5rem;
-    font-weight: 700;
-    letter-spacing: -.04rem;
-}
-.profile-wrapper h2 {
-    font-size: 3rem;
-    margin-bottom: 1.875rem;
-    line-height: 3.5rem;
-}
-.profile-wrapper h1, .profile-wrapper h2
-{
-    font-family: inherit;
-    text-align: center;
-    text-rendering: optimizeLegibility;
-}
-.profile-wrapper .profile-image
-{
-    margin-bottom: 2rem;
-}
-.profile-wrapper .profile-image img
-{
-    border-radius: 50%;
-    position: static;
-}
-.profile-wrapper .profile-desc
+.content-wrapper .profile-desc
 {
     font-size: 2rem;
     line-height: 3rem;
@@ -100,7 +7,7 @@ body{
     margin-top: 2.5rem;
 }
 
-.profile-wrapper .contact-me{
+.content-wrapper .contact-me{
     margin-top: 2.5rem;
     font-size: 2rem;display: -webkit-box;
     display: -webkit-flex;
@@ -117,7 +24,7 @@ body{
     transition: .3s;
     width: fit-content;
 }
-.profile-wrapper .contact-me svg
+.content-wrapper .contact-me svg
 {    
     height: 2rem;
     margin: 0;
@@ -126,7 +33,7 @@ body{
     line-height: 3rem;
 }
 
-.profile-wrapper .contact-me a, .profile-wrapper .contact-me svg
+.content-wrapper .contact-me a, .content-wrapper .contact-me svg
 {        
     color: #212121;
 }
