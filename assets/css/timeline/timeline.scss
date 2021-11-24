@@ -1,0 +1,258 @@
+@mixin triangle($direction, $color: currentcolor, $size: 1em) {
+  @if not index(top right bottom left, $direction) {
+    @error "Direction must be either `top`, `right`, `bottom` or `left`.";
+  }
+
+  width: 0;
+  height: 0;
+  content: '';
+  z-index: 2;
+  border-#{opposite-position($direction)}: ($size * 1.5) solid $color;
+  
+  $perpendicular-borders: $size solid transparent;
+  
+  @if $direction == top or $direction == bottom {
+    border-left:   $perpendicular-borders;
+    border-right:  $perpendicular-borders;
+  } @else if $direction == right or $direction == left {
+    border-bottom: $perpendicular-borders;
+    border-top:    $perpendicular-borders;
+  }
+}
+:root 
+{
+  // colors
+  --cd-color-1:white;
+  --cd-color-2:white;
+  --cd-color-3:white;
+  --cd-color-4:white;
+  --cd-color-5:white;
+  --cd-color-6:white;   
+  
+  --space-unit: 1em;
+  --space-xxs:  calc(0.25 * var(--space-unit));
+  --space-xs:   calc(0.5 * var(--space-unit));
+  --space-sm:   calc(0.75 * var(--space-unit));
+  --space-md:   calc(1.25 * var(--space-unit));
+  --space-lg:   calc(2 * var(--space-unit));
+  --space-xl:   calc(3.25 * var(--space-unit));
+  --space-xxl:  calc(5.25 * var(--space-unit));
+
+}
+
+
+
+.cd-timeline {
+  overflow: hidden;
+  padding: var(--space-md) 0;
+  color: var(--cd-color-3);
+
+}
+
+.cd-timeline__container {
+  position: relative;
+  padding: var(--space-md) 0;
+
+  &::before { // this is the timeline vertical line
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 18px;
+    height: 100%;
+    width: 4px;
+    background: var(--cd-color-2);
+  }
+
+  @media (min-width: 576px) {
+    &::before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+  }
+}
+
+.cd-timeline__block {
+  display: flex;
+  position: relative;
+  z-index: 1; // make sure content is above the timeline vertical line
+  margin-bottom: var(--space-md);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 576px) {
+    &:nth-child(even) {
+      flex-direction: row-reverse; // for even blocks -> lay out content from right to left
+    }
+  }
+}
+
+.cd-timeline__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--color-white), inset 0 2px 0 rgba(#000, 0.08), 0 3px 0 4px rgba(#000, 0.05);
+  will-change: transform;
+  margin-left: -5px;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+
+  @media (min-width: 576px) {
+    width: 30px;
+    height: 30px;
+    order: 1; // flex order -> place the image after cd-timeline__content
+    margin-left: calc(5% - 15px);
+    will-change: transform;
+
+    .cd-timeline__block:nth-child(even) & {
+      margin-right: calc(5% - 15px);
+    }
+  }
+}
+
+.cd-timeline__img--picture {
+  background-color: var(--cd-color-4);
+}
+
+.cd-timeline__img--movie {
+  background-color: var(--cd-color-5);
+}
+
+.cd-timeline__img--location {
+  background-color: var(--cd-color-6);
+}
+
+.cd-timeline__content {
+  flex-grow: 1; // expand element so that it takes up all the available space inside its parent
+  position: relative;
+  margin-left: var(--space-md);
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--space-xs);
+
+  &::before { // triangle next to content block
+    content: '';
+    position: absolute;
+    top: 16px;
+    right: 100%;
+    @include triangle(left,var(--color-white), 7px);
+  }
+
+  h2 {
+    color: var(--cd-color-1);
+  }
+
+  @media (min-width: 576px) {
+    box-shadow: 0 3px 0 var(--cd-color-2); 
+    width: 45%;
+    flex-grow: 0; // prevent element from growing inside its parent
+    will-change: transform;
+    margin: 0;
+    --line-height-multiplier: 1.2;
+
+    &::before { // triangle
+      top: 24px;
+    }
+
+    .cd-timeline__block:nth-child(odd) &::before { // change triangle direction
+      right: auto;
+      left: 100%;
+      @include triangle(right,var(--color-white), 7px);
+    }
+  }
+}
+
+.cd-timeline{
+  padding-top: 5%;
+}
+
+.cd-timeline__date {
+  color: (var(--cd-color-3));
+
+  @media (min-width: 576px) {
+    position: absolute;
+    width: 100%;
+    left: 120%;
+    top: 20px;
+
+    .cd-timeline__block:nth-child(even) & {
+      left: auto;
+      right: 120%;
+      text-align: right;
+    }
+  }
+}
+
+@media (min-width: 576px) { // animations
+  .cd-timeline__img--hidden, .cd-timeline__content--hidden {
+    visibility: hidden;
+  }
+
+  .cd-timeline__img--bounce-in {
+    animation: cd-bounce-1 0.6s;
+  }
+
+  .cd-timeline__content--bounce-in {
+    animation: cd-bounce-2 0.6s;       
+  }
+
+  .cd-timeline__block:nth-child(even) .cd-timeline__content--bounce-in {
+    animation-name: cd-bounce-2-inverse; 
+  }
+}
+
+
+@keyframes cd-bounce-1 {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);    
+  }
+}
+
+@keyframes cd-bounce-2 {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);   
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateX(20px);       
+  }
+
+  100% {
+    transform: translateX(0);       
+  }
+}
+
+@keyframes cd-bounce-2-inverse {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);   
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateX(-20px);
+  }
+
+  100% {
+    transform: translateX(0);    
+  }
+}

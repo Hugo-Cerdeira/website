@@ -7,10 +7,20 @@ html{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
 }
 
 html body{
     background: unset;
+    
+    font-size: 2rem;
+    line-height: 3rem;
+    font-weight: 400;
+    text-align: justify;
+    font-family: Barlow, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    word-break: normal;
+    word-wrap: normal;
+    color: rgba(255, 255, 255, .9);
 }
 
 body{
@@ -21,11 +31,6 @@ body{
 .content-wrapper{
     align-items: center;
     overflow: auto;
-    color: rgba(255, 255, 255, .9);
-    font-family: Barlow, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 400;
-    word-break: normal;
-    word-wrap: normal;
     -webkit-hyphens: none;
     padding: 2% 2.5%;
     height: 100%;
@@ -89,4 +94,9 @@ body{
 {
     border-radius: 50%;
     position: static;
+}
+
+.CV-icon{
+    margin: auto;
+    font-size: 2rem;
 }

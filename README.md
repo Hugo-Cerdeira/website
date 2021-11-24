@@ -1,3 +1,3 @@
-# website
+# Hugo Cerdeira website
 
-based on flowcv template
+Website for professional use. Meant as complement for my CV and LinkedIn. 
