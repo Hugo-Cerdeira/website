@@ -152,7 +152,7 @@
   }
 
   @media (min-width: 576px) {
-    box-shadow: 0 3px 0 var(--cd-color-2); 
+    //box-shadow: 0 3px 0 var(--cd-color-2); 
     width: 45%;
     flex-grow: 0; // prevent element from growing inside its parent
     will-change: transform;
@@ -182,7 +182,7 @@
     position: absolute;
     width: 100%;
     left: 120%;
-    top: 20px;
+    top: 3px;
 
     .cd-timeline__block:nth-child(even) & {
       left: auto;

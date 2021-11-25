@@ -4,7 +4,7 @@
   "description": "Website for professional use. Meant as complement for my CV and LinkedIn.",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --load-path ./node_modules/bourbon/core/_bourbon.scss --watch ./assets/css/timeline/timeline.scss:./assets/css/timeline/timeline.css"
+    "sass": "sass --load-path ./node_modules/bourbon/core/_bourbon.scss --watch ./docs/assets/css/timeline/timeline.scss:./docs/assets/css/timeline/timeline.css"
   },
   "repository": {
     "type": "git",
